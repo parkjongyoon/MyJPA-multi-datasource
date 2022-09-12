@@ -11,9 +11,7 @@ import com.example.myjpa2.entity.Department;
 import com.example.myjpa2.repository.DepartmentRepository;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
 @AllArgsConstructor
 public class DepartmentController {
@@ -22,7 +20,6 @@ public class DepartmentController {
 	
 	@GetMapping("departments")
 	public ResponseEntity<List<Department>> selectDepartment(){
-		log.debug("aaaaaaaa");
 		List<Department> list = departmentRepository.findAll();
 		return ResponseEntity.ok(list);
 	}
