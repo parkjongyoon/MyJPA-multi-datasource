@@ -11,11 +11,19 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 @Configuration
 public class QuerydslConfig {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @PersistenceContext(unitName = "defaultEntityManager")
+    private EntityManager defaultEntityManager;
+    
+    @PersistenceContext(unitName = "secondEntityManager")
+    private EntityManager secondEntityManager;
 
     @Bean
-    public JPAQueryFactory jpaQueryFactory() {
-        return new JPAQueryFactory(entityManager);
+    public JPAQueryFactory defaultJpaQueryFactory() {
+        return new JPAQueryFactory(defaultEntityManager);
+    }
+    
+    @Bean
+    public JPAQueryFactory secondJpaQueryFactory() {
+    	return new JPAQueryFactory(secondEntityManager);
     }
 }

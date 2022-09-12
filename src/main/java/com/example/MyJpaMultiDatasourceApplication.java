@@ -1,4 +1,4 @@
-package com.example.myjpa;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
